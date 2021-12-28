@@ -1,0 +1,19 @@
+<svg width="55" height="11" viewBox="0 0 55 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="3" y1="10.5" x2="31" y2="10.5" stroke="black"/>
+<line x1="30.6464" y1="10.6464" x2="33.6464" y2="7.64645" stroke="black"/>
+<line x1="33.5" y1="8" x2="33.5" y2="3" stroke="black"/>
+<line x1="33.6464" y1="3.35355" x2="30.6464" y2="0.353553" stroke="black"/>
+<line x1="3.35355" y1="0.353553" x2="0.353553" y2="3.35355" stroke="black"/>
+<line x1="0.5" y1="3" x2="0.499999" y2="8" stroke="black"/>
+<line x1="0.353553" y1="7.64645" x2="3.35355" y2="10.6464" stroke="black"/>
+<line x1="31" y1="0.5" x2="3" y2="0.500001" stroke="black"/>
+<rect x="3" y="1" width="28" height="9" fill="black"/>
+<path d="M3.5 1L6.53109 3.25V7.75L3.5 10L0.468911 7.75V3.25L3.5 1Z" fill="black"/>
+<path d="M30.5 1L33.5311 3.25V7.75L30.5 10L27.4689 7.75V3.25L30.5 1Z" fill="black"/>
+<rect x="34" width="11" height="11" fill="black"/>
+<rect x="36" y="8.68201" width="9.44975" height="1.86397" transform="rotate(-45 36 8.68201)" fill="#C4C4C4"/>
+<rect x="45" y="4" width="10" height="3" fill="black"/>
+<circle id="F1" cx="8.5" cy="5.5" r="3.5" fill="#848484"/>
+<circle id="H" cx="17.5" cy="5.5" r="3.5" fill="#ff0000"/>
+<circle id="NH" cx="26.5" cy="5.5" r="3.5" fill="#848484"/>
+</svg>
