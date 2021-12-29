@@ -4,6 +4,9 @@ var setB1 = false;
 var setB2 = false;
 var setC1 = false;
 var setC2 = false;
+var setStWeiche1 = false;
+var setStWeiche2 = false;
+var setSteuerung = false;
 var setZFA503C2 = false;
 var setZFA503C1 = false;
 var stateW1 = true;
@@ -29,6 +32,10 @@ var pressedB1 = false;
 var pressedGLS1 = false;
 var pressedC1 = false;
 var pressedNAUF = false;
+var pressedStWeiche1 = false;
+var pressedStWeiche2 = false;
+var pressedSteuerung = false;
+
 
 window.onload = () => {
 
@@ -51,10 +58,19 @@ document.getElementById("button509").style.borderStyle = "outset";
 document.getElementById("buttonBUeOb").style.borderStyle = "outset";
 document.getElementById("buttonB1").style.borderStyle = "outset";
 document.getElementById("buttonGLS1").style.borderStyle = "outset";
-document.getElementById("buttonC1").style.borderStyle = "outset"; /* Nr. 20 */
+document.getElementById("buttonC1").style.borderStyle = "outset"; 
+
+document.getElementById("buttonStWeiche1").style.borderStyle = "outset";
+document.getElementById("buttonStWeiche2").style.borderStyle = "outset";
+document.getElementById("buttonSteuerung").style.borderStyle = "outset"; 
+
+
 
 document.getElementById("W11l").style.background = "white";
 document.getElementById("W21r").style.background = "white";
+
+document.getElementById("lampBelWeicheEin").style.background = "white";
+
 
 }
 
@@ -62,7 +78,9 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-  
+
+/** Buttons */
+
 function signal_A503() {
   
   if(pressedA503 == false){
@@ -158,6 +176,7 @@ function signal_C1() {
     set_ZFA503C1(false);
     document.getElementById("buttonC1").style.borderStyle = "outset";
     document.getElementById("buttonNAUF").style.borderStyle = "outset";
+    document.getElementById("Zugfahrstrasse").style.background = "#4b4b4b";
     pressedC1 = false;
     setC1 = false;
     pressedNAUF = false;
@@ -180,6 +199,7 @@ function signal_C2(){
       set_ZFA503C2(true);
       document.getElementById("buttonC2").style.borderStyle = "outset";
       document.getElementById("buttonA503").style.borderStyle = "outset";
+      
       setA503 = false;
       pressedC2 = false;
       setC2 = false;
@@ -199,6 +219,8 @@ function signal_C2(){
     set_ZFA503C2(false);
     document.getElementById("buttonC2").style.borderStyle = "outset";
     document.getElementById("buttonNAUF").style.borderStyle = "outset";
+    document.getElementById("Zugfahrstrasse").style.background = "#4b4b4b";
+  
     pressedC2 = false;
     setC2 = false;
     pressedNAUF = false;
@@ -208,6 +230,83 @@ function signal_C2(){
   }
 
 }
+
+
+
+function button_StWeiche1() {
+  
+  if(pressedStWeiche1 == false){
+    setStWeiche1 = true;
+    pressedStWeiche1 = true;
+    document.getElementById("buttonStWeiche1").style.borderStyle = "inset";
+  
+  
+    if(setSteuerung == true & stateW1 == true){
+     
+      set_W1(false);
+      document.getElementById("buttonStWeiche1").style.borderStyle = "outset";
+      document.getElementById("buttonSteuerung").style.borderStyle = "outset";
+      
+      pressedStWeiche1 = false;
+      pressedSteuerung = false;
+      
+    }
+    else if(setSteuerung == true & stateW1 == false){
+     
+      set_W1(true);
+      document.getElementById("buttonStWeiche1").style.borderStyle = "outset";
+      document.getElementById("buttonSteuerung").style.borderStyle = "outset";
+      
+      pressedStWeiche1 = false;
+      pressedSteuerung = false;
+      
+    }
+  
+  
+  
+  }
+
+  else if(pressedStWeiche1 == true){
+    document.getElementById("buttonStWeiche1").style.borderStyle = "outset";
+    pressedStWeiche1 = false;
+    setStWeiche1 = false;
+  }
+
+}
+
+function button_StWeiche2() {
+  
+  if(pressedStWeiche2 == false){
+    setStWeiche2 = true;
+    pressedStWeiche2 = true;
+    document.getElementById("buttonStWeiche2").style.borderStyle = "inset";}
+
+  else if(pressedStWeiche2 == true){
+    document.getElementById("buttonStWeiche2").style.borderStyle = "outset";
+    pressedStWeiche2 = false;
+    setStWeiche2 = false;
+  }
+
+}
+
+function button_Steuerung() {
+  
+  if(pressedSteuerung == false){
+    setSteuerung = true;
+    pressedSteuerung = true;
+    document.getElementById("buttonSteuerung").style.borderStyle = "inset";}
+
+  else if(pressedSteuerung == true){
+    document.getElementById("buttonSteuerung").style.borderStyle = "outset";
+    pressedSteuerung = false;
+    setSteuerung = false;
+  }
+
+}
+
+
+
+/** Fahrstrassen */
 
 
 function set_ZFA503C2(setZF){
@@ -235,8 +334,11 @@ function set_ZFA503C2(setZF){
     document.getElementById("2G6").style.background = colorFahrs;
     document.getElementById("2G7").style.background = colorFahrs;
 
+    Zugfahrstrasse();
+
     if(stateW1 == false){
     set_W1(true);
+    
     }
 
   }
@@ -294,9 +396,11 @@ function set_ZFA503C1(setZF){
     document.getElementById("1G7").style.background = colorFahrs;
     document.getElementById("1G8").style.background = colorFahrs;
 
+    Zugfahrstrasse();
+    
     if(stateW1 == true){
     set_W1(false);
-    Zugfahrstrasse();
+    
     }
     
   }
@@ -329,6 +433,8 @@ function set_ZFA503C1(setZF){
 
 }
 
+
+/** Async Funktionen */
 
 async function set_W1(setW1){
 
