@@ -8,6 +8,7 @@
   <link href="css/style.css" rel="stylesheet" type="text/css">
   <link href="css/menu.css" rel="stylesheet" type="text/css">
   <link href="css/buttons.css" rel="stylesheet" type="text/css">
+  <link href="css/lamps.css" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
   <link rel="apple-touch-startup-image" href="meta/apple-touch-startup-image-640x1096.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"> <!-- iPhone 5+ -->
@@ -56,16 +57,41 @@
             <div class="font-pult3">abschlaten</div>
           </div>
           <div class="grid-cell">
-            <div class="grid-line">
-              <button id="buttonTagNachtTag" class="round-buttonTagNacht" onclick=""></button>
-            <button id="buttonTagNachtNacht" class="round-buttonTagNacht" onclick=""></button>
+            <div class="grid-lineLamp">
+              <div  class="grid-lineLampLeft"><div id="lampTag" class="round-light"></div></div>
+              <div  class="grid-lineLampRight"><div id="lampNacht" class="round-light"></div></div> 
             </div>
+            <div class="grid-lineButton">
+              <div  class="grid-lineButtonLeft"><button id="buttonTag" class="round-buttonTagNacht"></button></div>
+              <div  class="grid-lineButtonRight"><button id="buttonNacht" class="round-buttonTagNacht2"></button></div> 
+            </div>
+            <div class="font-pult">Umschaltung</div>
+          </div>
+          <div class="grid-cell">
+            <div class="grid-lineLamp">
+              <div  class="grid-lineLampLeft"><div id="lampBelWeicheEin" class="round-light"></div></div>
+              <div  class="grid-lineLampRight"><div id="lampBelWeicheAus" class="round-light"></div></div> 
+            </div>
+            <div class="grid-lineButton">
+              <div  class="grid-lineButtonLeft"><button id="buttonWeichenBelEin" class="round-buttonWeichenBelEin"></button></div>
+              <div  class="grid-lineButtonRight"><button id="buttonWeichenBelAus" class="round-buttonWeichenBelAus"></button></div> 
+            </div>
+            <div class="font-pult2">Weichen-</div>
+            <div class="font-pult3">Beleuchtung</div>
           </div>
           <div class="grid-cell"></div>
           <div class="grid-cell"></div>
           <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
+          <div class="grid-cell">
+            <div class="grid-lineLamp">
+              <div  class="grid-lineLampLeft"><div id="lampStWeiche1" class="round-light"></div></div>
+              <div  class="grid-lineLampRight"><div id="lampStWeiche2" class="round-light"></div></div> 
+            </div>
+            <div class="grid-lineButton">
+              <div  class="grid-lineButtonLeft"><button id="buttonStWeiche1" class="round-buttonWeichenSteuerung" onclick="button_StWeiche1()"></button></div>
+              <div  class="grid-lineButtonRight"><button id="buttonStWeiche2" class="round-buttonWeichenSteuerung" onclick="button_StWeiche2()"></button></div> 
+            </div>
+          </div>
           <div class="grid-cell"></div>
           <div class="grid-cell"></div>
           <div class="grid-cell"></div>
@@ -430,7 +456,7 @@
           <div class="grid-cell"></div>
           <div class="grid-cell"></div>
           <div class="grid-cell">
-            <button id="buttonSteuerung" class="round-buttonSteuerung" onclick=""></button>
+            <button id="buttonSteuerung" class="round-buttonSteuerung" onclick="button_Steuerung()"></button>
             <div class="font-pult4">Steuerung</div>
           </div>
           <div class="grid-cell"></div>
